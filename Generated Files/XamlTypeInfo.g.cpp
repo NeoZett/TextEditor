@@ -97,12 +97,6 @@ template<typename TDeclaringType, typename TValue>
 }
 
 template<typename TDeclaringType, typename TValue>
-::winrt::Windows::Foundation::IInspectable GetValueTypeMember_MyProperty(::winrt::Windows::Foundation::IInspectable const& instance)
-{
-    return ::winrt::box_value<TValue>(instance.as<TDeclaringType>().MyProperty());
-}
-
-template<typename TDeclaringType, typename TValue>
 ::winrt::Windows::Foundation::IInspectable GetValueTypeMember_IsExpanded(::winrt::Windows::Foundation::IInspectable const& instance)
 {
     return ::winrt::box_value<TValue>(instance.as<TDeclaringType>().IsExpanded());
@@ -150,14 +144,6 @@ void SetValueTypeMember_UseCompactResources(
     ::winrt::Windows::Foundation::IInspectable const& value)
 {
     instance.as<TDeclaringType>().UseCompactResources(::winrt::unbox_value<TValue>(value));
-}
-
-template<typename TDeclaringType, typename TValue>
-void SetValueTypeMember_MyProperty(
-    ::winrt::Windows::Foundation::IInspectable const& instance, 
-    ::winrt::Windows::Foundation::IInspectable const& value)
-{
-    instance.as<TDeclaringType>().MyProperty(::winrt::unbox_value<TValue>(value));
 }
 
 template<typename TDeclaringType, typename TValue>
@@ -246,49 +232,49 @@ const TypeInfo TypeInfos[] =
     L"Microsoft.UI.Xaml.Window", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    1, 0, -1, TypeKind::Metadata,
+    0, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     -1,
     //   5
     L"Microsoft.UI.Xaml.DependencyObject", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    1, 0, -1, TypeKind::Metadata,
+    0, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     -1,
     //   6
     L"Microsoft.UI.Xaml.ResourceDictionary", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    1, 0, -1, TypeKind::Metadata,
+    0, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     -1,
     //   7
     L"Microsoft.UI.Xaml.Controls.TreeViewNode", L"",
     &ActivateType<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>, nullptr, nullptr, nullptr,
     5, // Microsoft.UI.Xaml.DependencyObject
-    1, 0, -1, TypeKind::Metadata,
+    0, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsBindable | TypeInfo_Flags_None,
     -1,
     //   8
     L"Microsoft.UI.Xaml.Controls.XamlControlsResources", L"",
     &ActivateType<::winrt::Microsoft::UI::Xaml::Controls::XamlControlsResources>, nullptr, &DictionaryAdd<::winrt::Microsoft::UI::Xaml::Controls::XamlControlsResources, ::winrt::Windows::Foundation::IInspectable, ::winrt::Windows::Foundation::IInspectable>, nullptr,
     6, // Microsoft.UI.Xaml.ResourceDictionary
-    8, 0, -1, TypeKind::Metadata,
+    7, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_None,
     -1,
     //   9
     L"Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.Controls.TreeViewNode>", L"",
     nullptr, &CollectionAdd<::winrt::Windows::Foundation::Collections::IVector<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>, ::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>, nullptr, nullptr,
     -1,
-    9, 0, -1, TypeKind::Metadata,
+    8, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsReturnTypeStub | TypeInfo_Flags_None,
     -1,
     //  Last type here is for padding
     L"", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1, 
-    9, 0, -1, TypeKind::Custom,
+    8, 0, -1, TypeKind::Custom,
     TypeInfo_Flags_None,
 };
 
@@ -392,63 +378,56 @@ struct MemberInfo
 
 const MemberInfo MemberInfos[] = 
 {
-    //   0 - TextEditor.MainWindow.MyProperty
-    L"MyProperty",
-    &GetValueTypeMember_MyProperty<::winrt::TextEditor::MainWindow, int32_t>,
-    &SetValueTypeMember_MyProperty<::winrt::TextEditor::MainWindow, int32_t>,
-    0, // Int32
-    -1,
-    false, false, false,
-    //   1 - Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded
+    //   0 - Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded
     L"IsExpanded",
     &GetValueTypeMember_IsExpanded<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, bool>,
     &SetValueTypeMember_IsExpanded<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, bool>,
     2, // Boolean
     -1,
     false, true,  false,
-    //   2 - Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren
+    //   1 - Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren
     L"HasUnrealizedChildren",
     &GetValueTypeMember_HasUnrealizedChildren<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, bool>,
     &SetValueTypeMember_HasUnrealizedChildren<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, bool>,
     2, // Boolean
     -1,
     false, false, false,
-    //   3 - Microsoft.UI.Xaml.Controls.TreeViewNode.Content
+    //   2 - Microsoft.UI.Xaml.Controls.TreeViewNode.Content
     L"Content",
     &GetReferenceTypeMember_Content<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>,
     &SetReferenceTypeMember_Content<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, ::winrt::Windows::Foundation::IInspectable>,
     1, // Object
     -1,
     false, true,  false,
-    //   4 - Microsoft.UI.Xaml.Controls.TreeViewNode.Children
+    //   3 - Microsoft.UI.Xaml.Controls.TreeViewNode.Children
     L"Children",
     &GetReferenceTypeMember_Children<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>,
     nullptr,
     9, // Windows.Foundation.Collections.IVector`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
     -1,
     true,  false, false,
-    //   5 - Microsoft.UI.Xaml.Controls.TreeViewNode.Depth
+    //   4 - Microsoft.UI.Xaml.Controls.TreeViewNode.Depth
     L"Depth",
     &GetValueTypeMember_Depth<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, int32_t>,
     nullptr,
     0, // Int32
     -1,
     true,  true,  false,
-    //   6 - Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren
+    //   5 - Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren
     L"HasChildren",
     &GetValueTypeMember_HasChildren<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode, bool>,
     nullptr,
     2, // Boolean
     -1,
     true,  true,  false,
-    //   7 - Microsoft.UI.Xaml.Controls.TreeViewNode.Parent
+    //   6 - Microsoft.UI.Xaml.Controls.TreeViewNode.Parent
     L"Parent",
     &GetReferenceTypeMember_Parent<::winrt::Microsoft::UI::Xaml::Controls::TreeViewNode>,
     nullptr,
     7, // Microsoft.UI.Xaml.Controls.TreeViewNode
     -1,
     true,  false, false,
-    //   8 - Microsoft.UI.Xaml.Controls.XamlControlsResources.UseCompactResources
+    //   7 - Microsoft.UI.Xaml.Controls.XamlControlsResources.UseCompactResources
     L"UseCompactResources",
     &GetValueTypeMember_UseCompactResources<::winrt::Microsoft::UI::Xaml::Controls::XamlControlsResources, bool>,
     &SetValueTypeMember_UseCompactResources<::winrt::Microsoft::UI::Xaml::Controls::XamlControlsResources, bool>,

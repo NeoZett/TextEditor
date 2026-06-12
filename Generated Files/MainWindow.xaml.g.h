@@ -46,13 +46,13 @@ namespace winrt::TextEditor::implementation
         void UnloadObject(::winrt::Microsoft::UI::Xaml::DependencyObject const& dependencyObject);
         void DisconnectUnloadedObject(int32_t connectionId);
 
-        ::winrt::Microsoft::UI::Xaml::Controls::Button myButton()
+        ::winrt::Microsoft::UI::Xaml::Controls::RichEditBox EditorBox()
         {
-            return _myButton;
+            return _EditorBox;
         }
-        void myButton(::winrt::Microsoft::UI::Xaml::Controls::Button value)
+        void EditorBox(::winrt::Microsoft::UI::Xaml::Controls::RichEditBox value)
         {
-            _myButton = value;
+            _EditorBox = value;
         }
         
     protected:
@@ -61,7 +61,7 @@ namespace winrt::TextEditor::implementation
     private:
         struct MainWindow_obj1_Bindings;
 
-        ::winrt::Microsoft::UI::Xaml::Controls::Button _myButton{nullptr};
+        ::winrt::Microsoft::UI::Xaml::Controls::RichEditBox _EditorBox{nullptr};
     };
 }
 

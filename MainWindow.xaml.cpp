@@ -1,29 +1,26 @@
 #include "pch.h"
 #include "MainWindow.xaml.h"
+
 #if __has_include("MainWindow.g.cpp")
 #include "MainWindow.g.cpp"
 #endif
 
+#include "FileService.h"
+
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace winrt::TextEditor::implementation
 {
-    int32_t MainWindow::MyProperty()
+    void MainWindow::Open_Click(
+        IInspectable const&,
+        Microsoft::UI::Xaml::RoutedEventArgs const&)
     {
-        throw hresult_not_implemented();
     }
 
-    void MainWindow::MyProperty(int32_t /* value */)
+    void MainWindow::Save_Click(
+        IInspectable const&,
+        Microsoft::UI::Xaml::RoutedEventArgs const&)
     {
-        throw hresult_not_implemented();
-    }
-
-    void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
-    {
-        myButton().Content(box_value(L"Clicked"));
     }
 }

@@ -26,8 +26,6 @@ namespace winrt::TextEditor::implementation
     {
         MainWindow() = default;
 
-        std::int32_t MyProperty();
-        void MyProperty(std::int32_t value);
     };
 }
 namespace winrt::TextEditor::factory_implementation

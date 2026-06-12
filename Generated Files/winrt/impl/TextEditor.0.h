@@ -21,22 +21,18 @@ WINRT_EXPORT namespace winrt::impl
     template <> inline constexpr auto& name_v<winrt::TextEditor::MainWindow> = L"TextEditor.MainWindow";
     template <> inline constexpr auto& name_v<winrt::TextEditor::XamlMetaDataProvider> = L"TextEditor.XamlMetaDataProvider";
     template <> inline constexpr auto& name_v<winrt::TextEditor::IMainWindow> = L"TextEditor.IMainWindow";
-    template <> inline constexpr guid guid_v<winrt::TextEditor::IMainWindow>{ 0xE9787942,0xA603,0x5E64,{ 0xBB,0xF9,0x5E,0x75,0x96,0x9C,0x85,0x7A } }; // E9787942-A603-5E64-BBF9-5E75969C857A
+    template <> inline constexpr guid guid_v<winrt::TextEditor::IMainWindow>{ 0xC8878129,0xC7BA,0x5555,{ 0x86,0x36,0x05,0x0E,0xA8,0x31,0xB2,0xDA } }; // C8878129-C7BA-5555-8636-050EA831B2DA
     template <> struct default_interface<winrt::TextEditor::MainWindow>{ using type = winrt::TextEditor::IMainWindow; };
     template <> struct default_interface<winrt::TextEditor::XamlMetaDataProvider>{ using type = winrt::Microsoft::UI::Xaml::Markup::IXamlMetadataProvider; };
     template <> struct abi<winrt::TextEditor::IMainWindow>
     {
         struct WINRT_IMPL_ABI_DECL type : inspectable_abi
         {
-            virtual std::int32_t __stdcall get_MyProperty(std::int32_t*) noexcept = 0;
-            virtual std::int32_t __stdcall put_MyProperty(std::int32_t) noexcept = 0;
         };
     };
     template <typename D>
     struct consume_TextEditor_IMainWindow
     {
-        [[nodiscard]] auto MyProperty() const;
-        auto MyProperty(std::int32_t value) const;
     };
     template <> struct consume<winrt::TextEditor::IMainWindow>
     {

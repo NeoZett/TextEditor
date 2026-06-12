@@ -9,8 +9,23 @@
     mc:Ignorable="d"
     Title="TextEditor">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:ConnectionId='2' x:Name="myButton"                       >Click Me</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- Toolbar -->
+        <StackPanel Orientation="Horizontal" Spacing="8" Padding="8">
+            <Button x:ConnectionId='3' Content="Open"                    />
+            <Button x:ConnectionId='4' Content="Save"                    />
+        </StackPanel>
+        
+        <!-- Editor -->
+        <RichEditBox x:ConnectionId='2' x:Name="EditorBox"
+                     Grid.Row="1"
+                     FontFamily="Consolas"
+                     FontSize="14" />
+    </Grid>
 </Window>
 

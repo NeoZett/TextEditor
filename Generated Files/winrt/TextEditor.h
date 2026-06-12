@@ -15,33 +15,9 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "3.0.260520.1"), "Mismatche
 #endif // WINRT_IMPL_BUILD_MODULE
 WINRT_EXPORT namespace winrt::impl
 {
-    template <typename D> auto consume_TextEditor_IMainWindow<D>::MyProperty() const
-    {
-        std::int32_t value{};
-        consume_general<winrt::TextEditor::IMainWindow, D>(static_cast<D const*>(this), &abi_t<winrt::TextEditor::IMainWindow>::get_MyProperty, &value);
-        return value;
-    }
-    template <typename D> auto consume_TextEditor_IMainWindow<D>::MyProperty(std::int32_t value) const
-    {
-        consume_general<winrt::TextEditor::IMainWindow, D>(static_cast<D const*>(this), &abi_t<winrt::TextEditor::IMainWindow>::put_MyProperty, value);
-    }
     template <typename D>
     struct produce<D, winrt::TextEditor::IMainWindow> : produce_base<D, winrt::TextEditor::IMainWindow>
     {
-        std::int32_t __stdcall get_MyProperty(std::int32_t* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<std::int32_t>(this->shim().MyProperty());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        std::int32_t __stdcall put_MyProperty(std::int32_t value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            this->shim().MyProperty(value);
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
     };
 }
 WINRT_EXPORT namespace winrt::TextEditor
