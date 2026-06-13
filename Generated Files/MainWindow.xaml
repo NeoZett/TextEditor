@@ -19,13 +19,15 @@
         <StackPanel Orientation="Horizontal" Spacing="8" Padding="8">
             <Button x:ConnectionId='3' Content="Open"                    />
             <Button x:ConnectionId='4' Content="Save"                    />
+            <TextBlock x:ConnectionId='5' x:Name="Debug" Text="Hello there?" />
         </StackPanel>
         
         <!-- Editor -->
         <RichEditBox x:ConnectionId='2' x:Name="EditorBox"
                      Grid.Row="1"
                      FontFamily="Consolas"
-                     FontSize="14" />
+                     FontSize="14"
+                     />
     </Grid>
 </Window>
 

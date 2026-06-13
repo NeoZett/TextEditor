@@ -70,6 +70,12 @@ namespace winrt::TextEditor::implementation
                 });
             }
             break;
+        case 5:
+            {
+                auto targetElement = target.as<::winrt::Microsoft::UI::Xaml::Controls::TextBlock>();
+                this->Debug(targetElement);
+            }
+            break;
         }
         _contentLoaded = true;
     }

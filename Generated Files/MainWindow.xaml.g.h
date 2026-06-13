@@ -54,6 +54,15 @@ namespace winrt::TextEditor::implementation
         {
             _EditorBox = value;
         }
+
+        ::winrt::Microsoft::UI::Xaml::Controls::TextBlock Debug()
+        {
+            return _Debug;
+        }
+        void Debug(::winrt::Microsoft::UI::Xaml::Controls::TextBlock value)
+        {
+            _Debug = value;
+        }
         
     protected:
         bool _contentLoaded{false};
@@ -62,6 +71,7 @@ namespace winrt::TextEditor::implementation
         struct MainWindow_obj1_Bindings;
 
         ::winrt::Microsoft::UI::Xaml::Controls::RichEditBox _EditorBox{nullptr};
+        ::winrt::Microsoft::UI::Xaml::Controls::TextBlock _Debug{nullptr};
     };
 }
 
